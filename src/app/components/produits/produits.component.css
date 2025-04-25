@@ -1,0 +1,31 @@
+.produit-container {
+    max-width: 800px;
+    margin: 2rem auto;
+    padding: 1rem;
+    font-family: 'Segoe UI', sans-serif;
+  }
+  
+  h2 {
+    text-align: center;
+    color: #333;
+  }
+  
+  .produit-card {
+    background-color: #f8f9fa;
+    border-left: 5px solid #007bff;
+    padding: 1rem 1.5rem;
+    margin: 1rem 0;
+    box-shadow: 0 2px 6px rgba(0,0,0,0.05);
+    border-radius: 6px;
+    transition: transform 0.2s ease-in-out;
+  }
+  
+  .produit-card:hover {
+    transform: scale(1.02);
+  }
+  
+  .produit-card h3 {
+    margin: 0 0 0.5rem;
+    color: #007bff;
+  }
+  

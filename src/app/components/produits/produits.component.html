@@ -1,0 +1,34 @@
+<div class="produit-container">
+  <h2>🛒 Liste des Produits</h2>
+
+  <!-- Search & Add -->
+  <div class="produit-actions">
+    <input type="text" placeholder="Catégorie..." [(ngModel)]="searchCategorie" class="search-input" />
+    <input type="number" placeholder="Prix max..." [(ngModel)]="searchPrixMax" class="search-input" />
+    <button class="search-btn" (click)="rechercher()">🔍 Rechercher</button>
+
+    <button class="add-btn" (click)="toggleForm()">➕ Ajouter Produit</button>
+    <button class="promo-btn" (click)="appliquerPromotions()">🔥 Appliquer Promo</button>
+  </div>
+
+  <!-- Add/Edit Form -->
+  <div *ngIf="showForm" class="form-section">
+    <input type="text" placeholder="Nom" [(ngModel)]="newProduit.nom" />
+    <input type="text" placeholder="Catégorie" [(ngModel)]="newProduit.categorie" />
+    <input type="number" placeholder="Prix" [(ngModel)]="newProduit.prix" />
+    <input type="number" placeholder="Stock" [(ngModel)]="newProduit.stock" />
+    <input type="number" placeholder="Remise" [(ngModel)]="newProduit.remise" />
+    <button (click)="saveProduit()">✅ {{ editMode ? 'Modifier' : 'Ajouter' }}</button>
+  </div>
+
+  <!-- Product Cards -->
+  <div *ngFor="let p of produits" class="produit-card">
+    <h3>{{ p.nom }}</h3>
+    <p><strong>Catégorie :</strong> {{ p.categorie }}</p>
+    <p><strong>Prix :</strong> {{ p.prix }} TND</p>
+    <p><strong>Stock :</strong> {{ p.stock }}</p>
+    <p><strong>Remise :</strong> {{ p.remise }}%</p>
+    <button (click)="modifierProduit(p)">✏️ Modifier</button>
+    <button (click)="supprimerProduit(p.id)">🗑️ Supprimer</button>
+  </div>
+</div>
