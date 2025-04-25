@@ -2,6 +2,7 @@ import { Component } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { HttpClientModule } from '@angular/common/http'; // ✅ KEEP THIS
 import { ProduitsComponent } from './components/produits/produits.component'; // ✅
+import { EventComponent } from './components/event/event.component';
 
 @Component({
   selector: 'app-root',
@@ -9,7 +10,8 @@ import { ProduitsComponent } from './components/produits/produits.component'; //
   imports: [
     CommonModule,
     HttpClientModule,  // ✅ required here
-    ProduitsComponent
+    ProduitsComponent,
+    EventComponent
   ],  templateUrl: './app.component.html',
   styleUrls: ['./app.component.css']
 })

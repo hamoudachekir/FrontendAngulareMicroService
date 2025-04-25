@@ -1,0 +1,33 @@
+<div class="produit-container">
+    <h2>🛒 Liste des events</h2>
+  
+    <!-- Search & Add -->
+    <div class="produit-actions">
+      <input type="text" placeholder="nom..." [(ngModel)]="searchCategorie" class="search-input" />
+      <input type="number" placeholder="Prix max..." [(ngModel)]="searchPrixMax" class="search-input" />
+      <button class="search-btn" (click)="rechercher()">🔍 Rechercher</button>
+  
+      <button class="add-btn" (click)="toggleForm()">➕ Ajouter event</button>
+      <button class="promo-btn" (click)="appliquerPromotions()">🔥 Appliquer Promo</button>
+    </div>
+  
+    <!-- Add/Edit Form -->
+    <div *ngIf="showForm" class="form-section">
+      <input type="text" placeholder="Nom" [(ngModel)]="newEvent.nom" />
+      <input type="text" placeholder="prenom" [(ngModel)]="newEvent.prenom" />
+      <input type="number" placeholder="date" [(ngModel)]="newEvent.date" />
+ 
+      <button (click)="saveProduit()">✅ {{ editMode ? 'Modifier' : 'Ajouter' }}</button>
+    </div>
+  
+    <!-- Product Cards -->
+    <div *ngFor="let p of produits" class="event-card">
+      <h3>{{ p.nom }}</h3>
+      <p><strong>nom :</strong> {{ p.nom }}</p>
+      <p><strong>prenom :</strong> {{ p.prenom }} TND</p>
+      <p><strong>date :</strong> {{ p.date }}</p>
+      <button (click)="modifierEvent(p)">✏️ Modifier</button>
+      <button (click)="supprimerEvent(p.id)">🗑️ Supprimer</button>
+    </div>
+  </div>
+  
